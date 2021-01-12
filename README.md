@@ -38,7 +38,7 @@ sudo apt install git cmake build-essential
 sudo pacman -S git cmake base-devel
 ```
 
-In a terminal run the follwoing commands:
+In a terminal run the following commands:
 ```bash
 git clone https://github.com/paneda/prf_test_apps.git
 cd prf_test_apps
