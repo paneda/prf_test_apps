@@ -6,8 +6,6 @@
 
 #include <stdint.h>
 
-#include "baseband/figs.hpp"
-
 // The PRF firmware limits the MAX_CIF_CU_SIZE due to memory
 // constraints. The MAX_CIF_CU_SIZE can be split between three
 // subchannels.
@@ -172,6 +170,20 @@ typedef struct {
 	uint32_t crc_;
 } prf_fib_info_t;
 
+// Note: Need to match corresponding Fig_0_1 in dab_sdr_library
+typedef struct {
+	int8_t cn_;
+	int8_t oe_;
+	int8_t pd_;
+	int8_t subchId_;
+	uint16_t startAddress_;
+	int8_t isLongForm_;
+	uint8_t shortFormIdx_;
+	uint8_t longFormOption_;
+	uint8_t longFormProtLevel_;
+	uint16_t longFormSubchSize_;
+} prf_fig_0_1_t;
+
 // prf_raw_subchannel_t provides unprocessed subchannels, i.e
 // deinterleaving, viterbi decoding and scrambling has not been applied.
 // Subchannels data carried in data_ are interleaved in 4 CIF's according to
@@ -185,7 +197,7 @@ typedef struct {
 	// *8 for bytes * 4 cif:s
 	uint8_t data_[MAX_CIF_CU_SIZE*8*4];
 	// data can be divided into MAX_NO_SUBCHANNELS subchannels (x4)
-	Fig_0_1 fig01Arr_[MAX_NO_SUBCHANNELS];
+	prf_fig_0_1_t fig01Arr_[MAX_NO_SUBCHANNELS];
 	uint32_t crc_;
 } prf_raw_subchannel_t;
 
@@ -198,7 +210,7 @@ typedef struct {
 	// *8 for bytes * 4 cif:s
 	uint8_t data_[MAX_CIF_CU_SIZE*8*4/2];
 	// data can be divided into MAX_NO_SUBCHANNELS subchannels (x4)
-	Fig_0_1 fig01Arr_[MAX_NO_SUBCHANNELS];
+	prf_fig_0_1_t fig01Arr_[MAX_NO_SUBCHANNELS];
 	uint32_t crc_;
 } prf_subchannel_t;
 
