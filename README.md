@@ -18,7 +18,11 @@ Add the following line to /boot/config.txt
 ```
 dtparams=spi=on
 ```
-
+If there is any issues with reading SPI data add following line to 
+/boot/cmdline.txt
+```
+spidev.bufsiz=65536
+```
 Optional: Allow access to spidev without sudo:
 ```bash
 sudo groupadd --system spi
