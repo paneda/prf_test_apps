@@ -12,17 +12,17 @@ static void sigHandler(int signum) {
 
 void toggleRight() {
   right = !right;
-  std::cout << "Right on/off" << (right ? "ON" : "OFF") << std::endl;
+  std::cout << "Right: " << (right ? "ON" : "OFF") << std::endl;
 }
 
 void toggleLeft() {
   left = !left;
-  std::cout << "Left on/off" << (left ? "ON" : "OFF") << std::endl;
+  std::cout << "Left: " << (left ? "ON" : "OFF") << std::endl;
 }
 
 void toggleTurn() {
   turn = !turn;
-  std::cout << "Turn on/off" << (turn ? "ON" : "OFF") << std::endl;
+  std::cout << "Turn: " << (turn ? "ON" : "OFF") << std::endl;
 }
 
 int main() {
