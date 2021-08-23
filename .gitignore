@@ -43,3 +43,5 @@ compile_commands.json
 
 # Visual studio code
 .vscode/
+cmake-*
+.idea
