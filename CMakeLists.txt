@@ -36,7 +36,7 @@ include_directories(
 
 set(COMMON_SRCS
         ${CMAKE_SOURCE_DIR}/common/crc32.c
-        pws_callback/pws_callback_sample.cpp)
+        )
 
 
 add_executable(pws_status_spi
